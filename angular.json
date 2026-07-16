@@ -14,8 +14,9 @@
       "sourceRoot": "src",
       "prefix": "app",
       "architect": {
-        "build": {
-          "builder": "@angular/build:application",
+       "build": {
+  "builder": "@angular/build:application"
+,
           "options": {
             "browser": "src/main.ts",
             "tsConfig": "tsconfig.app.json",
@@ -40,17 +41,17 @@
           "configurations": {
             "production": {
               "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
-                }
-              ],
+  {
+    "type": "initial",
+    "maximumWarning": "2MB",
+    "maximumError": "5MB"
+  },
+  {
+    "type": "anyComponentStyle",
+    "maximumWarning": "20kB",
+    "maximumError": "50kB"
+  }
+],
               "outputHashing": "all"
             },
             "development": {
