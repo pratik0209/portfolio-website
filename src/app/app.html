@@ -7,11 +7,13 @@
   </div>
 
   <div class="tab-bar">
+    
     <div class="tab" [class.active]="activeSection==='home'" (click)="scrollTo('home')">home<span class="dim"></span></div>
     <div class="tab" [class.active]="activeSection==='about'" (click)="scrollTo('about')">about<span class="dim"></span></div>
     <div class="tab" [class.active]="activeSection==='skills'" (click)="scrollTo('skills')">skills<span class="dim"></span></div>
     <div class="tab" [class.active]="activeSection==='projects'" (click)="scrollTo('projects')">projects<span class="dim"></span></div>
     <div class="tab" [class.active]="activeSection==='education'" (click)="scrollTo('education')">education<span class="dim"></span></div>
+    <div class="tab" [class.active]="activeSection==='achievements'" (click)="scrollTo('achievements')">achievements<span class="dim">.log</span></div>
     <div class="tab" [class.active]="activeSection==='contact'" (click)="scrollTo('contact')">contact<span class="dim"></span></div>
   </div>
 
@@ -128,6 +130,41 @@ cleaning, and appliance servicing
         <div class="cdate">2020 – 2023</div>
         <h4>Diploma in Information Technology</h4>
         <div class="school">Amrutvahini College of Polytechnic, Sangamner</div>
+      </div>
+    </div>
+  </section>
+  <!-- CERTIFICATIONS & ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="eyebrow">achievements.log</div>
+    <h2>Certifications & Awards</h2>
+    <div class="badges">
+      <div class="badge badge-1">
+        <div class="badge-icon">🏆</div>
+        <div>
+          <div class="t">Java Full Stack Development</div>
+          <div class="s">MindScript Technologies, Viman Nagar, Pune — May 2026</div>
+        </div>
+      </div>
+      <div class="badge badge-2">
+        <div class="badge-icon">🐍</div>
+        <div>
+          <div class="t">Python Full Stack Developer</div>
+          <div class="s">Virtual Internship — Eduskills</div>
+        </div>
+      </div>
+      <div class="badge badge-3">
+        <div class="badge-icon">💻</div>
+        <div>
+          <div class="t">Web Designing & Development Intern</div>
+          <div class="s">Innovations Hub Services Pvt. Ltd.</div>
+        </div>
+      </div>
+      <div class="badge badge-4">
+        <div class="badge-icon">🥈</div>
+        <div>
+          <div class="t">2nd Prize — Technical Poster Competition</div>
+          <div class="s">IBM ICE Day, hosted by JSPM University</div>
+        </div>
       </div>
     </div>
   </section>

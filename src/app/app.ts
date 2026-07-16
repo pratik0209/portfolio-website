@@ -32,7 +32,7 @@ export class App implements OnInit {
 
   @HostListener('window:scroll')
   onScroll() {
-    const sections = ['home', 'about', 'skills', 'projects', 'education', 'contact'];
+   const sections = ['home', 'about', 'skills', 'projects', 'education', 'achievements', 'contact'];
     for (const id of sections) {
       const el = document.getElementById(id);
       if (el) {
