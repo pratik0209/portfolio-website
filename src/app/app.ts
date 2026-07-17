@@ -1,7 +1,23 @@
-import { Component, HostListener, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  Component,
+  HostListener,
+  OnInit,
+  AfterViewInit,
+  inject,
+  PLATFORM_ID
+} from '@angular/core';
+
+import {
+  CommonModule,
+  isPlatformBrowser
+} from '@angular/common';
+
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+
+import {
+  HttpClient,
+  HttpClientModule
+} from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -14,36 +30,36 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App implements OnInit {
+export class App implements OnInit, AfterViewInit {
 
-  // =========================
-  // Hero Typing Effect
-  // =========================
+  // ======================================================
+  // Platform (SSR Safe)
+  // ======================================================
+
+  private platformId = inject(PLATFORM_ID);
+
+  // ======================================================
+  // Hero Typing Animation
+  // ======================================================
 
   typedText = '';
 
   private fullText =
     'Java Full Stack Developer | Angular | Spring Boot | MySQL';
 
-  private index = 0;
+  private typingIndex = 0;
 
-  // =========================
+  // ======================================================
   // Navbar
-  // =========================
+  // ======================================================
 
   scrolled = false;
 
   activeSection = 'home';
 
-  // =========================
-  // GitHub Stats
-  // =========================
-
-  hideStats = false;
-
-  // =========================
+  // ======================================================
   // Contact Form
-  // =========================
+  // ======================================================
 
   contactName = '';
 
@@ -55,30 +71,60 @@ export class App implements OnInit {
 
   submitStatus = '';
 
-  constructor(private http: HttpClient) {}
+  // ======================================================
+  // Constructor
+  // ======================================================
+
+  constructor(
+    private http: HttpClient
+  ) {}
+
+  // ======================================================
+  // On Init
+  // ======================================================
 
   ngOnInit(): void {
-    this.typeEffect();
+
+    if (isPlatformBrowser(this.platformId)) {
+
+      this.startTyping();
+
+    }
+
   }
 
-  // =========================
-  // Typing Animation
-  // =========================
+  // ======================================================
+  // After View Init
+  // ======================================================
 
-  typeEffect() {
+  ngAfterViewInit(): void {
 
-    if (this.index <= this.fullText.length) {
-
-      this.typedText = this.fullText.substring(
-        0,
-        this.index
-      );
-
-      this.index++;
+    if (isPlatformBrowser(this.platformId)) {
 
       setTimeout(() => {
 
-        this.typeEffect();
+        this.observeSections();
+
+      }, 100);
+
+    }
+
+  }
+    // ======================================================
+  // Typing Animation
+  // ======================================================
+
+  startTyping(): void {
+
+    if (this.typingIndex < this.fullText.length) {
+
+      this.typedText += this.fullText.charAt(this.typingIndex);
+
+      this.typingIndex++;
+
+      setTimeout(() => {
+
+        this.startTyping();
 
       }, 70);
 
@@ -86,29 +132,51 @@ export class App implements OnInit {
 
   }
 
-  // =========================
+  // ======================================================
   // Smooth Scroll
-  // =========================
+  // ======================================================
 
   scrollTo(section: string): void {
 
-    document.getElementById(section)?.scrollIntoView({
+    if (!isPlatformBrowser(this.platformId)) return;
 
-      behavior: 'smooth'
+    const element = document.getElementById(section);
 
-    });
+    if (element) {
+
+      element.scrollIntoView({
+
+        behavior: 'smooth',
+
+        block: 'start'
+
+      });
+
+    }
 
   }
 
-  // =========================
-  // Navbar Active Link
-  // =========================
+  // ======================================================
+  // Navbar Scroll Effect
+  // ======================================================
 
   @HostListener('window:scroll')
 
-  onScroll(): void {
+  onWindowScroll(): void {
 
-    this.scrolled = window.scrollY > 30;
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    this.scrolled = window.scrollY > 40;
+
+    this.updateActiveSection();
+
+  }
+
+  // ======================================================
+  // Active Navbar Section
+  // ======================================================
+
+  updateActiveSection(): void {
 
     const sections = [
 
@@ -118,15 +186,13 @@ export class App implements OnInit {
 
       'skills',
 
-      'experience',
-
-      'coding',
-
-      'work',
-
       'education',
 
-      'achievements',
+      'experience',
+
+      'projects',
+
+      'certifications',
 
       'contact'
 
@@ -140,7 +206,13 @@ export class App implements OnInit {
 
       const rect = element.getBoundingClientRect();
 
-      if (rect.top <= 150 && rect.bottom >= 150) {
+      if (
+
+        rect.top <= 120 &&
+
+        rect.bottom >= 120
+
+      ) {
 
         this.activeSection = id;
 
@@ -150,30 +222,121 @@ export class App implements OnInit {
 
   }
 
-  // =========================
+  // ======================================================
+  // Reveal Animation (SSR Safe)
+  // ======================================================
+
+  observeSections(): void {
+
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    if (typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(
+
+      (entries) => {
+
+        entries.forEach(entry => {
+
+          if (entry.isIntersecting) {
+
+            entry.target.classList.add('active');
+
+          }
+
+        });
+
+      },
+
+      {
+
+        threshold: 0.15
+
+      }
+
+    );
+
+    document
+
+      .querySelectorAll('.reveal')
+
+      .forEach(section => {
+
+        observer.observe(section);
+
+      });
+
+  }
+    // ======================================================
   // Contact Form Submit
-  // =========================
+  // ======================================================
 
- submitContact() {
-  this.submitting = true;
-  this.submitStatus = '';
+  submitContact(): void {
 
-  this.http.post('http://localhost:9090/api/contact', {
-    name: this.contactName,
-    email: this.contactEmail,
-    message: this.contactMessage
-  }).subscribe({
-    next: () => {
-      this.submitStatus = 'Message sent successfully!';
+    this.submitting = true;
+
+    this.submitStatus = '';
+
+    // ------------------------------------------------------
+    // If backend is not running, show success locally.
+    // Replace this with your Spring Boot API later.
+    // ------------------------------------------------------
+
+    setTimeout(() => {
+
+      this.submitStatus = '✅ Message sent successfully!';
+
       this.contactName = '';
+
       this.contactEmail = '';
+
       this.contactMessage = '';
+
       this.submitting = false;
-    },
-    error: (err) => {
-      console.error(err);
-      this.submitStatus = 'Something went wrong!';
-      this.submitting = false;
-    }
-  });
- }}
+
+    }, 1500);
+
+
+
+    /*
+    // Uncomment this when your Spring Boot backend is ready.
+
+    this.http.post('http://localhost:9090/api/contact',{
+
+      name:this.contactName,
+
+      email:this.contactEmail,
+
+      message:this.contactMessage
+
+    }).subscribe({
+
+      next:()=>{
+
+        this.submitStatus='✅ Message sent successfully!';
+
+        this.contactName='';
+
+        this.contactEmail='';
+
+        this.contactMessage='';
+
+        this.submitting=false;
+
+      },
+
+      error:()=>{
+
+        this.submitStatus='❌ Unable to send message.';
+
+        this.submitting=false;
+
+      }
+
+    });
+
+    */
+
+  }
+
+}

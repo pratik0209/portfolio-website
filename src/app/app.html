@@ -1,934 +1,1273 @@
-<!-- ========================= -->
+<!-- ===================================================== -->
 <!-- NAVBAR -->
-<!-- ========================= -->
+<!-- ===================================================== -->
 
-<nav [class.scrolled]="scrolled">
-  <div class="nav-inner">
+<header class="navbar" [class.scrolled]="scrolled">
 
-    <a class="logo" (click)="scrollTo('home')">
-      Pratik Sawant
-    </a>
-
-    <div class="nav-links">
-      <a [class.active]="activeSection==='about'" (click)="scrollTo('about')">About</a>
-      <a [class.active]="activeSection==='skills'" (click)="scrollTo('skills')">Skills</a>
-      <a [class.active]="activeSection==='work'" (click)="scrollTo('work')">Projects</a>
-      <a [class.active]="activeSection==='coding'" (click)="scrollTo('coding')">Coding</a>
-      <a [class.active]="activeSection==='experience'" (click)="scrollTo('experience')">Experience</a>
-      <a [class.active]="activeSection==='education'" (click)="scrollTo('education')">Education</a>
-      <a [class.active]="activeSection==='contact'" (click)="scrollTo('contact')">Contact</a>
+    <div class="logo">
+        Pratik<span>.</span>
     </div>
 
-  </div>
-</nav>
+    <nav>
 
-<!-- ========================= -->
-<!-- HERO SECTION -->
-<!-- ========================= -->
+        <a (click)="scrollTo('home')">Home</a>
 
-<header id="home" class="hero">
+        <a (click)="scrollTo('about')">About</a>
 
-  <div class="hero-text">
+        <a (click)="scrollTo('skills')">Skills</a>
 
-    <div class="eyebrow">
-      Java Full Stack Developer • Pune, India
-    </div>
+        <a (click)="scrollTo('education')">Education</a>
 
-    <h1>
-      Hi, I'm <br>
-      <span class="accent-text">Pratik Sawant</span>
-    </h1>
+        <a (click)="scrollTo('experience')">Experience</a>
 
-    <p class="tagline">
-      {{typedText}}
-      <span class="cursor"></span>
-    </p>
+        <a (click)="scrollTo('projects')">Projects</a>
 
-    <div class="hero-cta">
+        <a (click)="scrollTo('contact')">Contact</a>
 
-      <a
-        class="btn primary"
-        href="Pratik_Sawant_Resume.pdf"
-        download>
+    </nav>
+
+    <a
+        href="assets/resume.pdf"
+        download="resume.pdf"
+        class="resume-btn">
+
         Download Resume
-      </a>
 
-      <a
-        class="btn"
-        (click)="scrollTo('work')">
-        View Projects
-      </a>
-
-      <a
-        class="btn"
-        (click)="scrollTo('contact')">
-        Hire Me
-      </a>
-
-    </div>
-
-  </div>
-
-  <div class="hero-photo">
-
-    <img
-      src="profile-cutout.png"
-      alt="Pratik Sawant">
-
-  </div>
+    </a>
 
 </header>
 
-<!-- ========================= -->
-<!-- ABOUT -->
-<!-- ========================= -->
 
-<section id="about">
 
-  <div class="section-label">
-    About Me
-  </div>
 
-  <div class="about-grid">
 
-    <div>
+<!-- ===================================================== -->
+<!-- HERO SECTION -->
+<!-- ===================================================== -->
 
-      <p class="about-text">
+<section id="home" class="hero">
 
-        I'm a passionate Computer Science Engineering graduate specializing
-        in Java Full Stack Development.
+    <!-- Space Background -->
 
-      </p>
+    <div class="stars"></div>
 
-      <p class="about-text">
+    <div class="twinkling"></div>
 
-        I enjoy building modern, responsive, scalable web applications using
-        Angular, Spring Boot, Hibernate, MySQL, Java and REST APIs.
+    <div class="shooting-stars"></div>
 
-      </p>
+    <div class="hero-content">
 
-      <p class="about-text">
+        <span class="availability">
 
-        My goal is to become a software engineer who builds products that
-        solve real-world problems with clean architecture and exceptional user
-        experiences.
+            🚀 Available for Internship & Full Time
 
-      </p>
+        </span>
+
+        <h3>
+
+            Hello, I'm
+
+        </h3>
+
+        <h1>
+
+            Pratik
+
+            <span>Sawant</span>
+
+        </h1>
+
+        <h2>
+
+            {{ typedText }}
+
+        </h2>
+
+        <p>
+
+            Passionate Java Full Stack Developer with strong knowledge of
+            Angular, Spring Boot, Java, MySQL and REST APIs.
+            I love building scalable web applications,
+            solving real-world problems and continuously learning
+            modern technologies.
+
+        </p>
+
+        <div class="hero-buttons">
+
+            <a
+
+                href="assets/resume.pdf"
+
+                download="Pratik_Sawant_Resume.pdf"
+
+                class="btn-primary">
+
+                📄 Download Resume
+
+            </a>
+
+            <button
+
+                class="btn-secondary"
+
+                (click)="scrollTo('projects')">
+
+                🚀 View Projects
+
+            </button>
+
+        </div>
+
+        <div class="hero-social">
+
+            <a
+
+                href="https://github.com/pratik0209"
+
+                target="_blank">
+
+                GitHub
+
+            </a>
+
+            <a
+
+                href="https://www.linkedin.com/in/pratik-sawant-16a9a3235/"
+
+                target="_blank">
+
+                LinkedIn
+
+            </a>
+
+            <a
+
+                href="mailto:pratiksawant1200@gmail.com">
+
+                Email
+
+            </a>
+
+        </div>
 
     </div>
 
-    <div class="facts">
+</section>
+<!-- ===================================================== -->
+<!-- ABOUT SECTION -->
+<!-- ===================================================== -->
 
-      <div class="fact">
-        <span>Location</span>
-        Pune, Maharashtra
-      </div>
+<section id="about" class="section reveal">
 
-      <div class="fact">
-        <span>Degree</span>
-        B.Tech Computer Science
-      </div>
+    <div class="section-title">
 
-      <div class="fact">
-        <span>Specialization</span>
-        Java Full Stack Development
-      </div>
+        <span>Get To Know Me</span>
 
-      <div class="fact">
-        <span>Experience</span>
-        Internship + Academic Projects
-      </div>
-
-      <div class="fact">
-        <span>Availability</span>
-        Open for Full-Time Opportunities
-      </div>
+        <h2>About Me</h2>
 
     </div>
 
-  </div>
+    <div class="about-container">
+
+        <div class="about-content">
+
+            <h3>
+
+                Java Full Stack Developer
+
+            </h3>
+
+            <p>
+
+                Computer Science Engineering graduate (B.Tech) with a
+                certification in Java Full Stack Development and strong
+                proficiency in Java, Python, C and C++.
+
+            </p>
+
+            <p>
+
+                Experienced in building end-to-end web applications using
+                front-end and back-end technologies, with solid foundations
+                in Data Structures, Algorithms, Object-Oriented Programming
+                and Database Management.
+
+            </p>
+
+            <p>
+
+                Adept at problem-solving, debugging and writing clean,
+                efficient code for real-world applications. Seeking to
+                leverage technical skills, full-stack development experience
+                and a strong learning mindset in a challenging software
+                development role.
+
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
-<!-- ========================= -->
+
+
+<!-- ===================================================== -->
 <!-- SKILLS -->
-<!-- ========================= -->
+<!-- ===================================================== -->
 
-<section id="skills">
+<section id="skills" class="section reveal">
 
-  <div class="section-label">
-    Technical Skills
-  </div>
+    <div class="section-title">
 
-  <div class="skills-grid">
+        <span>Technical Expertise</span>
 
-    <div class="skill-col">
-
-      <h3>Programming</h3>
-
-      <div class="pills">
-        <span>Java</span>
-        <span>Python</span>
-        <span>C</span>
-        <span>C++</span>
-        <span>SQL</span>
-      </div>
+        <h2>My Skills</h2>
 
     </div>
 
-    <div class="skill-col">
+    <div class="skills-grid">
 
-      <h3>Frontend</h3>
+        <!-- Programming -->
 
-      <div class="pills">
-        <span>Angular</span>
-        <span>HTML5</span>
-        <span>CSS3</span>
-        <span>JavaScript</span>
-        <span>Bootstrap</span>
-      </div>
+        <div class="skill-card">
+
+            <h3>Programming Languages</h3>
+
+            <div class="skill-tags">
+
+                <span>Java</span>
+
+                <span>Python</span>
+
+                <span>C</span>
+
+                <span>C++</span>
+
+                <span>SQL</span>
+
+            </div>
+
+        </div>
+
+        <!-- Frontend -->
+
+        <div class="skill-card">
+
+            <h3>Frontend</h3>
+
+            <div class="skill-tags">
+
+                <span>Angular</span>
+
+                <span>HTML5</span>
+
+                <span>CSS3</span>
+
+                <span>JavaScript</span>
+
+                <span>TypeScript</span>
+
+                <span>Bootstrap</span>
+
+            </div>
+
+        </div>
+
+        <!-- Backend -->
+
+        <div class="skill-card">
+
+            <h3>Backend</h3>
+
+            <div class="skill-tags">
+
+                <span>Spring Boot</span>
+
+                <span>Hibernate</span>
+
+                <span>Spring MVC</span>
+
+                <span>REST API</span>
+
+                <span>JPA</span>
+
+                <span>MySQL</span>
+
+            </div>
+
+        </div>
+
+        <!-- Tools -->
+
+        <div class="skill-card">
+
+            <h3>Tools & Platforms</h3>
+
+            <div class="skill-tags">
+
+                <span>Git</span>
+
+                <span>GitHub</span>
+
+                <span>VS Code</span>
+
+                <span>IntelliJ IDEA</span>
+
+                <span>Postman</span>
+
+                <span>MySQL Workbench</span>
+
+            </div>
+
+        </div>
 
     </div>
-
-    <div class="skill-col">
-
-      <h3>Backend</h3>
-
-      <div class="pills">
-        <span>Spring Boot</span>
-        <span>Hibernate</span>
-        <span>REST API</span>
-        <span>MySQL</span>
-        <span>JPA</span>
-      </div>
-
-    </div>
-
-    <div class="skill-col">
-
-      <h3>Tools</h3>
-
-      <div class="pills">
-        <span>Git</span>
-        <span>GitHub</span>
-        <span>VS Code</span>
-        <span>IntelliJ IDEA</span>
-        <span>Postman</span>
-      </div>
-
-    </div>
-
-  </div>
 
 </section>
 
-<!-- NEXT PART STARTS HERE -->
-<!-- EXPERIENCE SECTION -->
- <!-- ========================= -->
+
+
+<!-- ===================================================== -->
+<!-- TECH STACK -->
+<!-- ===================================================== -->
+
+<section class="section reveal">
+
+    <div class="section-title">
+
+        <span>Technologies</span>
+
+        <h2>Tech Stack</h2>
+
+    </div>
+
+    <div class="tech-stack-grid">
+
+        <div class="tech-item">☕ Java</div>
+
+        <div class="tech-item">🌱 Spring Boot</div>
+
+        <div class="tech-item">🅰 Angular</div>
+
+        <div class="tech-item">🗄 MySQL</div>
+
+        <div class="tech-item">🐙 Git</div>
+
+        <div class="tech-item">💻 GitHub</div>
+
+        <div class="tech-item">⚡ REST API</div>
+
+        <div class="tech-item">🎨 HTML & CSS</div>
+
+    </div>
+
+</section>
+<!-- ===================================================== -->
+<!-- EDUCATION -->
+<!-- ===================================================== -->
+
+<section id="education" class="section reveal">
+
+    <div class="section-title">
+
+        <span>My Journey</span>
+
+        <h2>Education</h2>
+
+    </div>
+
+    <div class="timeline">
+
+        <!-- B.Tech -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+                <span class="timeline-year">
+                    2023 - 2026
+                </span>
+
+                <h3>
+                    Bachelor of Technology (B.Tech)
+                </h3>
+
+                <h4>
+                    Computer Science Engineering
+                </h4>
+
+                <h5>
+                    JSPM University, Pune
+                </h5>
+
+                <p>
+
+                    Pursuing B.Tech in Computer Science Engineering with
+                    specialization in Software Development, Java,
+                    Full Stack Development, Database Management,
+                    Data Structures and Algorithms.
+
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Diploma -->
+
+        <div class="timeline-item">
+
+            <div class="timeline-dot"></div>
+
+            <div class="timeline-content">
+
+                <span class="timeline-year">
+                    2020 - 2023
+                </span>
+
+                <h3>
+                    Diploma in Computer Engineering
+                </h3>
+
+                <h4>
+                    Amrutvahini Polytechnic
+                </h4>
+
+                <p>
+
+                    Built strong fundamentals in Programming,
+                    Networking, Operating Systems,
+                    Database Management and Web Development.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
 <!-- EXPERIENCE -->
-<!-- ========================= -->
+<!-- ===================================================== -->
 
-<section id="experience">
+<section id="experience" class="section reveal">
 
-  <div class="section-label">
-    Experience
-  </div>
+    <div class="section-title">
 
-  <div class="exp-list">
+        <span>Professional Experience</span>
 
-    <div class="exp-row">
-
-      <div class="exp-date">
-        2026
-      </div>
-
-      <div>
-
-        <h4>Java Full Stack Developer Intern</h4>
-
-        <div class="exp-org">
-          Innovations Hub Services Pvt. Ltd.
-        </div>
-
-        <p>
-          Developed responsive web pages, integrated REST APIs,
-          improved UI/UX, and collaborated with team members
-          using Angular, Spring Boot and MySQL.
-        </p>
-
-      </div>
+        <h2>Internships</h2>
 
     </div>
 
-    <div class="exp-row">
+    <div class="experience-grid">
 
-      <div class="exp-date">
-        2026
-      </div>
+        <!-- Internship 1 -->
 
-      <div>
+        <div class="experience-card">
 
-        <h4>Python Full Stack Virtual Internship</h4>
+            <span class="experience-date">
 
-        <div class="exp-org">
-          Eduskills
+                May 2025 - June 2025
+
+            </span>
+
+            <h3>
+
+                Python Full Stack Developer
+
+            </h3>
+
+            <h4>
+
+                Eduskills Virtual Internship
+
+            </h4>
+
+            <ul>
+
+                <li>
+                    Developed Full Stack applications.
+                </li>
+
+                <li>
+                    Worked with Python and Databases.
+                </li>
+
+                <li>
+                    Built REST APIs.
+                </li>
+
+                <li>
+                    Frontend development using HTML, CSS and JavaScript.
+                </li>
+
+            </ul>
+
         </div>
 
-        <p>
-          Worked on Python Full Stack concepts,
-          backend development,
-          database connectivity,
-          and web application deployment.
-        </p>
 
-      </div>
+        <!-- Internship 2 -->
+
+        <div class="experience-card">
+
+            <span class="experience-date">
+
+                2025
+
+            </span>
+
+            <h3>
+
+                Google Cloud Internship
+
+            </h3>
+
+            <h4>
+
+                Google Cloud Platform
+
+            </h4>
+
+            <ul>
+
+                <li>
+                    Worked on Cloud Computing concepts.
+                </li>
+
+                <li>
+                    IAM & Cloud Security.
+                </li>
+
+                <li>
+                    Cloud Storage Services.
+                </li>
+
+                <li>
+                    Monitoring & Cloud Deployment.
+                </li>
+
+            </ul>
+
+        </div>
 
     </div>
-
-  </div>
 
 </section>
 
-<!-- ========================= -->
+
+
+<!-- ===================================================== -->
+<!-- ACHIEVEMENTS -->
+<!-- ===================================================== -->
+
+<section id="achievements" class="section reveal">
+
+    <div class="section-title">
+
+        <span>Highlights</span>
+
+        <h2>Achievements</h2>
+
+    </div>
+
+    <div class="achievement-grid">
+
+        <div class="achievement-card">
+
+            <h3>
+
+                🏆 3+
+
+            </h3>
+
+            <p>
+
+                Internships Completed
+
+            </p>
+
+        </div>
+
+        <div class="achievement-card">
+
+            <h3>
+
+                💻 10+
+
+            </h3>
+
+            <p>
+
+                Projects Developed
+
+            </p>
+
+        </div>
+
+        <div class="achievement-card">
+
+            <h3>
+
+                ☕ Java
+
+            </h3>
+
+            <p>
+
+                Full Stack Certified
+
+            </p>
+
+        </div>
+
+        <div class="achievement-card">
+
+            <h3>
+
+                🚀 Continuous Learner
+
+            </h3>
+
+            <p>
+
+                Passionate about Software Development
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- ===================================================== -->
 <!-- CODING PROFILES -->
-<!-- ========================= -->
+<!-- ===================================================== -->
 
-<section id="coding">
+<section class="section reveal">
 
-  <div class="section-label">
-    Coding Profiles
-  </div>
+    <div class="section-title">
 
-  <div class="coding-grid">
+        <span>Programming</span>
 
-    <!-- GitHub -->
-
-    <div class="coding-card">
-
-      <h3>GitHub</h3>
-
-      <p>
-        Explore my repositories, Java projects,
-        Angular applications and Spring Boot work.
-      </p>
-
-      <a
-        href="https://github.com/pratik0209"
-        target="_blank">
-        Visit GitHub →
-      </a>
-
-      <img
-        src="https://github-readme-stats.vercel.app/api?username=pratik0209&show_icons=true&theme=transparent&hide_border=true"
-        alt="GitHub Stats"
-        (error)="hideStats=true"
-        [hidden]="hideStats">
+        <h2>Coding Profiles</h2>
 
     </div>
 
-    <!-- LeetCode -->
+    <div class="coding-grid">
 
-    <div class="coding-card">
+        <a
+            href="https://github.com/pratik0209"
+            target="_blank"
+            class="coding-card">
 
-      <h3>LeetCode</h3>
+            <h3>GitHub</h3>
 
-      <p>
-        Solving Data Structures and Algorithms
-        problems regularly.
-      </p>
+            <p>View My Repositories</p>
 
-      <a
-        href="https://leetcode.com/"
-        target="_blank">
-        View Profile →
-      </a>
+        </a>
+
+        <a
+            href="#"
+            target="_blank"
+            class="coding-card">
+
+            <h3>LeetCode</h3>
+
+            <p>Problem Solving</p>
+
+        </a>
+
+        <a
+            href="https://www.hackerrank.com/profile/pratik_uTW96i"
+            target="_blank"
+            class="coding-card">
+
+            <h3>HackerRank</h3>
+
+            <p>Programming Practice</p>
+
+        </a>
 
     </div>
-
-    <!-- HackerRank -->
-
-    <div class="coding-card">
-
-      <h3>HackerRank</h3>
-
-      <p>
-        Java, SQL and Problem Solving practice.
-      </p>
-
-      <a
-        href="https://www.hackerrank.com/"
-        target="_blank">
-        View Profile →
-      </a>
-
-    </div>
-
-  </div>
 
 </section>
-
-<!-- ========================= -->
+<!-- ===================================================== -->
 <!-- PROJECTS -->
-<!-- ========================= -->
+<!-- ===================================================== -->
 
-<section id="work">
+<section id="projects" class="section reveal">
 
-<div class="section-label">
-Featured Projects
-</div>
+    <div class="section-title">
 
-<!-- Project 1 -->
+        <span>My Work</span>
 
-<div class="work-row">
+        <h2>Featured Projects</h2>
 
-<div class="work-meta">
+    </div>
 
-<span class="work-date">
-2026
-</span>
+    <div class="project-grid">
 
-<div class="work-tags">
+        <!-- Project 1 -->
 
-<span>Angular</span>
-<span>Spring Boot</span>
-<span>MySQL</span>
+        <div class="project-card">
 
-</div>
+            <div class="project-number">01</div>
 
-</div>
+            <h3>Course Management System</h3>
 
-<div class="work-body">
+            <p>
 
-<h3>
-Institute Management System
-</h3>
+                A Full Stack Course Management System built using Angular,
+                Spring Boot and MySQL. Includes authentication,
+                student management, course management and REST APIs.
 
-<p>
+            </p>
 
-Developed a responsive institute management
-system featuring student management,
-course management and faculty modules.
+            <div class="project-tech">
 
-</p>
+                <span>Angular</span>
 
-<ul class="work-features">
+                <span>Spring Boot</span>
 
-<li>Angular Frontend</li>
+                <span>MySQL</span>
 
-<li>Spring Boot REST APIs</li>
+                <span>REST API</span>
 
-<li>MySQL Database</li>
+            </div>
 
-<li>Responsive UI</li>
+            <div class="project-buttons">
 
-<li>CRUD Operations</li>
+                <a
+                    href="https://github.com/pratik0209/Course-Management/tree/main/CourseManagementFrontend"
+                    target="_blank"
+                    class="project-btn">
 
-</ul>
+                    GitHub
 
-<div class="work-links">
+                </a>
 
-<a
-class="work-link"
-href="https://github.com/pratik0209/institute-management-system"
-target="_blank">
+                <a
+                    href="https://course-management-woad-iota.vercel.app/"
+                    class="project-btn">
 
-GitHub →
+                    Live Demo
 
-</a>
+                </a>
 
-<a
-class="work-link"
-href="#">
+            </div>
 
-Live Demo →
+        </div>
 
-</a>
 
-</div>
 
-</div>
+        <!-- Project 2 -->
 
-</div>
+        <div class="project-card">
 
-<!-- Project 2 -->
+            <div class="project-number">02</div>
 
-<div class="work-row">
+            <h3>Portfolio Website</h3>
 
-<div class="work-meta">
+            <p>
 
-<span class="work-date">
+                Modern responsive portfolio developed using Angular with
+                animations, responsive layout and Spring Boot backend.
 
-2026
+            </p>
 
-</span>
+            <div class="project-tech">
 
-<div class="work-tags">
+                <span>Angular</span>
 
-<span>Python</span>
+                <span>CSS</span>
 
-<span>FastAPI</span>
+                <span>TypeScript</span>
 
-<span>React</span>
+                <span>Spring Boot</span>
 
-</div>
+            </div>
 
-</div>
+            <div class="project-buttons">
 
-<div class="work-body">
+                <a
+                    href="https://github.com/pratik0209/portfolio-website"
+                    target="_blank"
+                    class="project-btn">
 
-<h3>
+                    GitHub
 
-QuickServe
+                </a>
 
-</h3>
+                <a
+                    href="#"
+                    class="project-btn">
 
-<p>
+                    Live Demo
 
-AI-powered home service platform connecting
-customers with service providers using
-smart matching algorithms.
+                </a>
 
-</p>
+            </div>
 
-<ul class="work-features">
+        </div>
 
-<li>Real-Time Tracking</li>
 
-<li>AI Service Recommendation</li>
 
-<li>Authentication</li>
+        <!-- Project 3 -->
 
-<li>Booking System</li>
+        <div class="project-card">
 
-</ul>
+            <div class="project-number">03</div>
 
-<div class="work-links">
+            <h3>Institute Management System</h3>
 
-<a
-class="work-link"
-href="#">
+            <p>
 
-GitHub →
+                Web-based Gym Management System for Member Registration,
+                Attendance, Fee Tracking and Dashboard.
 
-</a>
+            </p>
 
-<a
-class="work-link"
-href="#">
+            <div class="project-tech">
 
-Live Demo →
+                <span>Java</span>
 
-</a>
+                <span>Spring Boot</span>
 
-</div>
+                <span>MySQL</span>
 
-</div>
+            </div>
 
-</div>
+            <div class="project-buttons">
 
-<!-- Project 3 -->
+                <a
+                    href="https://github.com/pratik0209"
+                    target="_blank"
+                    class="project-btn">
 
-<div class="work-row">
+                    GitHub
 
-<div class="work-meta">
+                </a>
+                 <a
+                    href="https://institute-management-system-h2ep.vercel.app/home"
+                    class="project-btn">
 
-<span class="work-date">
+                    Live Demo
 
-2026
+                </a>
 
-</span>
+            </div>
 
-<div class="work-tags">
+        </div>
 
-<span>Angular</span>
-
-<span>Spring Boot</span>
-
-<span>Portfolio</span>
-
-</div>
-
-</div>
-
-<div class="work-body">
-
-<h3>
-
-Developer Portfolio
-
-</h3>
-
-<p>
-
-A fully responsive portfolio website developed
-using Angular and Spring Boot with a contact
-form, smooth scrolling, animations and GitHub
-integration.
-
-</p>
-
-<ul class="work-features">
-
-<li>Angular 20</li>
-
-<li>REST API</li>
-
-<li>MySQL Backend</li>
-
-<li>Responsive Design</li>
-
-<li>Dark Modern UI</li>
-
-</ul>
-
-<div class="work-links">
-
-<a
-class="work-link"
-href="https://github.com/pratik0209"
-target="_blank">
-
-GitHub →
-
-</a>
-
-<a
-class="work-link"
-href="#">
-
-Live Demo →
-
-</a>
-
-</div>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
-<!-- NEXT PART STARTS HERE -->
 
-<!-- EDUCATION -->
- <!-- ========================= -->
-<!-- EDUCATION -->
-<!-- ========================= -->
 
-<section id="education">
 
-  <div class="section-label">
-    Education
-  </div>
 
-  <div class="edu-list">
-
-    <div class="edu-row">
-
-      <div class="edu-date">
-        2023 – 2026
-      </div>
-
-      <div>
-
-        <h4>B.Tech – Computer Science & Engineering</h4>
-
-        <div class="edu-school">
-          JSPM University, Pune
-        </div>
-
-        <p>
-          CGPA: <strong>7.0</strong>
-        </p>
-
-      </div>
-
-    </div>
-
-    <div class="edu-row">
-
-      <div class="edu-date">
-        2020 – 2023
-      </div>
-
-      <div>
-
-        <h4>Diploma in Information Technology</h4>
-
-        <div class="edu-school">
-          Amrutvahini Polytechnic, Sangamner
-        </div>
-
-        <p>
-          Percentage: <strong>80%</strong>
-        </p>
-
-      </div>
-
-    </div>
-
-    <div class="edu-row">
-
-      <div class="edu-date">
-        2019 – 2020
-      </div>
-
-      <div>
-
-        <h4>SSC</h4>
-
-        <div class="edu-school">
-          Residential High School, Ahmednagar
-        </div>
-
-        <p>
-          Percentage: <strong>85.80%</strong>
-        </p>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- ========================= -->
+<!-- ===================================================== -->
 <!-- CERTIFICATIONS -->
-<!-- ========================= -->
+<!-- ===================================================== -->
 
-<section id="achievements">
+<section id="certifications" class="section reveal">
 
-  <div class="section-label">
-    Certifications
-  </div>
+    <div class="section-title">
 
-  <ul class="ach-list">
+        <span>Certificates</span>
 
-    <li>
+        <h2>Certifications</h2>
 
-      <div>
+    </div>
 
-        <h4>Java Full Stack Development</h4>
+    <div class="certificate-grid">
 
-        <span>
-          MindScript Technologies, Pune
-        </span>
+        <div class="certificate-card">
 
-      </div>
+            <h3>
 
-      <strong>2026</strong>
+                Java Full Stack Development
 
-    </li>
+            </h3>
 
-    <li>
+            <p>
 
-      <div>
+                Successfully completed Java Full Stack Development
+                Certification covering Java, Spring Boot,
+                Angular and MySQL.
 
-        <h4>Python Full Stack Internship</h4>
+            </p>
 
-        <span>
-          Eduskills
-        </span>
+        </div>
 
-      </div>
 
-      <strong>2026</strong>
 
-    </li>
+        <div class="certificate-card">
 
-    <li>
+            <h3>
 
-      <div>
+                Python Full Stack Internship
 
-        <h4>Web Designing & Development Internship</h4>
+            </h3>
 
-        <span>
-          Innovations Hub Services Pvt. Ltd.
-        </span>
+            <p>
 
-      </div>
+                Eduskills Virtual Internship
+                (May 2025 – June 2025)
 
-      <strong>2026</strong>
+            </p>
 
-    </li>
+        </div>
 
-    <li>
 
-      <div>
 
-        <h4>Technical Poster Competition</h4>
+        <div class="certificate-card">
 
-        <span>
-          IBM ICE Day – 2nd Prize
-        </span>
+            <h3>
 
-      </div>
+                Google Cloud Internship
 
-      <strong>Winner</strong>
+            </h3>
 
-    </li>
+            <p>
 
-  </ul>
+                Successfully completed Google Cloud
+                Virtual Internship.
+
+            </p>
+
+        </div>
+
+    </div>
 
 </section>
 
-<!-- ========================= -->
+
+
+
+<!-- ===================================================== -->
+<!-- SERVICES -->
+<!-- ===================================================== -->
+
+<section class="section reveal">
+
+    <div class="section-title">
+
+        <span>What I Do</span>
+
+        <h2>Services</h2>
+
+    </div>
+
+    <div class="service-grid">
+
+        <div class="service-card">
+
+            <h3>
+
+                💻 Frontend Development
+
+            </h3>
+
+            <p>
+
+                Modern responsive websites using
+                Angular, HTML, CSS and JavaScript.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+            <h3>
+
+                ⚙ Backend Development
+
+            </h3>
+
+            <p>
+
+                REST APIs using Spring Boot,
+                Java and MySQL.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="service-card">
+
+            <h3>
+
+                🚀 Full Stack Development
+
+            </h3>
+
+            <p>
+
+                Complete web application development
+                from UI to Database.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ===================================================== -->
 <!-- CONTACT -->
-<!-- ========================= -->
+<!-- ===================================================== -->
 
-<section id="contact">
+<section id="contact" class="section reveal">
 
-  <div class="section-label">
-    Contact
-  </div>
+    <div class="section-title">
 
-  <h2>
+        <span>Get In Touch</span>
 
-    Let's Build Something Amazing Together.
+        <h2>Let's Work Together</h2>
 
-  </h2>
+    </div>
 
-  <p
-    style="margin-bottom:40px;
-    color:var(--text-dim);
-    max-width:700px;">
+    <div class="contact-container">
 
-    I'm currently looking for full-time Software
-    Engineer / Java Full Stack Developer opportunities.
+        <!-- Left Side -->
 
-    Feel free to contact me.
+        <div class="contact-info">
 
-  </p>
+            <h3>
 
-  <!-- CONTACT FORM -->
+                Contact Information
 
-  <form
+            </h3>
 
-    class="contact-form"
+            <p>
 
-    (ngSubmit)="submitContact()"
+                I'm currently looking for Internship and Full-Time
+                opportunities as a Java Full Stack Developer.
+                Feel free to reach out!
 
-    #cf="ngForm">
+            </p>
 
-    <input
+            <div class="contact-item">
 
-      type="text"
+                <h4>📧 Email</h4>
 
-      name="name"
+                <p>
 
-      [(ngModel)]="contactName"
+                    pratiksawant1200@gmail.com
 
-      placeholder="Your Name"
+                </p>
 
-      required>
+            </div>
 
-    <input
+            <div class="contact-item">
 
-      type="email"
+                <h4>📱 Phone</h4>
 
-      name="email"
+                <p>
 
-      [(ngModel)]="contactEmail"
+                    +91 86259 85096
 
-      placeholder="Your Email"
+                </p>
 
-      required>
+            </div>
 
-    <textarea
+            <div class="contact-item">
 
-      rows="6"
+                <h4>📍 Location</h4>
 
-      name="message"
+                <p>
 
-      [(ngModel)]="contactMessage"
+                    Pune, Maharashtra, India
 
-      placeholder="Write your message..."
+                </p>
 
-      required>
+            </div>
 
-    </textarea>
+            <div class="contact-social">
 
-    <button
+                <a href="https://github.com/pratik0209" target="_blank">
 
-      class="btn primary"
+                    GitHub
 
-      [disabled]="!cf.valid || submitting"
+                </a>
 
-      type="submit">
+                <a href="https://www.linkedin.com/in/pratik-sawant-16a9a3235/" target="_blank">
 
-      {{ submitting ? 'Sending...' : 'Send Message' }}
+                    LinkedIn
 
-    </button>
+                </a>
 
-    <p
-      class="form-status"
+                <a href="pratiksawant1200@gmail.com">
 
-      *ngIf="submitStatus">
+                    Email
 
-      {{ submitStatus }}
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- Right Side -->
+
+        <div class="contact-form">
+
+            <form (ngSubmit)="submitContact()">
+
+                <input
+                    type="text"
+                    name="name"
+                    [(ngModel)]="contactName"
+                    placeholder="Your Name"
+                    required>
+
+                <input
+                    type="email"
+                    name="email"
+                    [(ngModel)]="contactEmail"
+                    placeholder="your mail"
+                    required>
+
+                <textarea
+                    rows="6"
+                    name="message"
+                    [(ngModel)]="contactMessage"
+                    placeholder="Write your message..."
+                    required>
+
+                </textarea>
+
+                <button
+                    type="submit"
+                    [disabled]="submitting">
+
+                    {{ submitting ? 'Sending...' : 'Send Message' }}
+
+                </button>
+
+            </form>
+
+            <p class="status">
+
+                {{ submitStatus }}
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ===================================================== -->
+<!-- FOOTER -->
+<!-- ===================================================== -->
+
+<footer class="footer">
+
+    <h2>
+
+        Pratik Sawant
+
+    </h2>
+
+    <p>
+
+        Java Full Stack Developer
 
     </p>
 
-  </form>
+    <div class="footer-links">
 
-  <!-- CONTACT LINKS -->
+        <a (click)="scrollTo('home')">
 
-  <div class="contact-links">
+            Home
 
-    <a
-      href="mailto:pratiksawant1200@gmail.com">
+        </a>
 
-      📧 pratiksawant1200@gmail.com
+        <a (click)="scrollTo('about')">
 
-    </a>
+            About
 
-    <a
+        </a>
 
-      href="https://www.linkedin.com/in/pratik-sawant-16a9a3235/"
+        <a (click)="scrollTo('skills')">
 
-      target="_blank">
+            Skills
 
-      💼 LinkedIn
+        </a>
 
-    </a>
+        <a (click)="scrollTo('projects')">
 
-    <a
+            Projects
 
-      href="https://github.com/pratik0209"
+        </a>
 
-      target="_blank">
+        <a (click)="scrollTo('contact')">
 
-      💻 GitHub
+            Contact
 
-    </a>
+        </a>
 
-  </div>
+    </div>
 
-</section>
+    <div class="footer-social">
 
-<!-- ========================= -->
-<!-- FOOTER -->
-<!-- ========================= -->
+        <a
+            href="https://github.com/pratik0209"
+            target="_blank">
 
-<footer>
+            GitHub
 
-  <div>
+        </a>
 
-    Designed & Developed by
+        <a
+            href="https://www.linkedin.com/in/pratik-sawant-16a9a3235/"
+            target="_blank">
 
-    <strong>
+            LinkedIn
 
-      Pratik Sawant
+        </a>
 
-    </strong>
+        <a
+            href="mailto:pratiksawant1200@gmail.com">
 
-  </div>
+            Gmail
 
-  <div>
+        </a>
 
-    © 2026 All Rights Reserved
+    </div>
 
-  </div>
+    <p class="copyright">
+
+        © 2026 Pratik Sawant.
+
+        Designed & Developed with ❤️ using Angular & Spring Boot.
+
+    </p>
 
 </footer>
